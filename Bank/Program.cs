@@ -36,7 +36,7 @@ namespace Bank
                 )
             };
             Report report = new Report();
-            Bank bank = new Bank(accounts);
+            Bank bank = new Bank(accounts, 800);
 
             Console.WriteLine("Listing accounts vol. 1\n");
             report.ListAccounts(accounts);
@@ -51,6 +51,9 @@ namespace Bank
 
             Console.WriteLine("Listing accounts vol. 2\n");
             report.ListAccounts(accounts);
+
+            Bank other_bank = new Bank(new Account[] { });
+            Console.WriteLine("Sending 300 to other bank. Bank funds after: " + bank.MakeInterbankPayment(300, other_bank));
             Console.ReadKey();
         }
     }
